@@ -1,27 +1,12 @@
-/* --- High-End Design System: Victoria Organic Premium --- */
+/* --- Mobile-First Design System: Victoria Organic --- */
 :root {
-    --primary: #064e3b; /* Emerald Deep */
+    --primary: #064e3b;
     --primary-light: #10b981;
-    --accent: #f59e0b; /* Amber Accent */
-    --bg-dark: #0f172a; /* Slate 900 */
+    --bg-dark: #0f172a;
     --bg-light: #f8fafc;
-    --glass: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --text-white: #ffffff;
     --text-dark: #0f172a;
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-/* --- Reveal Animations --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+    --white: #ffffff;
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -31,34 +16,45 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg-light);
     color: var(--text-dark);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    padding-bottom: 70px; /* Space for sticky mobile CTA */
 }
 
-/* --- Premium Navigation --- */
+/* --- Typography (Mobile Base) --- */
+h1 { font-size: 2.25rem; font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
+h2 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.5px; }
+h3 { font-size: 1.25rem; font-weight: 700; }
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.section { padding: 4rem 0; }
+
+/* --- Navigation (Mobile Base) --- */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1.5rem 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-nav.scrolled {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
     padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 2rem;
 }
 
 .nav-content {
@@ -67,256 +63,270 @@ nav.scrolled {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.75rem;
-    font-weight: 900;
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: 900; 
+    color: var(--primary); 
+    text-decoration: none; 
     letter-spacing: -1px;
-    color: var(--primary);
-    text-decoration: none;
 }
+.logo span { color: var(--primary-light); }
 
-.logo span {
-    color: var(--primary-light);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
-
+/* Navigation Links Styling */
 .nav-links a {
     text-decoration: none;
     color: var(--text-dark);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.95rem;
     transition: color 0.3s ease;
+    padding: 0.5rem 0;
 }
 
 .nav-links a:hover {
     color: var(--primary-light);
 }
 
-.btn-quote {
-    background: var(--primary);
-    color: white !important;
-    padding: 0.75rem 1.75rem;
-    border-radius: 12px;
-    font-weight: 600;
-    box-shadow: 0 4px 6px -1px rgba(6, 78, 59, 0.2);
+/* Hamburger Icon */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
 }
 
-/* --- Hero Section: High Impact --- */
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Desktop links hidden by default */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1.5rem;
+    box-shadow: var(--shadow-xl);
+}
+
+.nav-links.active { display: flex; }
+
+/* --- Hero (Mobile Base) --- */
 .hero {
-    height: 100vh;
-    min-height: 800px;
-    position: relative;
+    min-height: 85vh;
+    padding-top: 80px;
     display: flex;
     align-items: center;
-    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.7) 20%, rgba(15, 23, 42, 0) 100%), url('victoria_roof_organic_hero_1778633825389.png');
+    background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.5)), url('victoria_roof_organic_hero_1778633825389.png');
     background-size: cover;
     background-position: center;
     color: white;
-    overflow: hidden;
-}
-
-.hero-content {
-    max-width: 750px;
-    z-index: 10;
+    text-align: center;
 }
 
 .hero-label {
     display: inline-block;
-    background: rgba(16, 185, 129, 0.15);
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.2);
     color: var(--primary-light);
-    padding: 0.5rem 1.25rem;
+    padding: 0.4rem 1rem;
     border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
-    backdrop-filter: blur(5px);
-}
-
-.hero h1 {
-    font-size: clamp(3rem, 5vw, 4.5rem);
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -2px;
     margin-bottom: 1.5rem;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
 }
 
 .hero-cta {
     display: flex;
-    gap: 1.5rem;
-    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
-/* --- Cards & Modern Grid --- */
-.section {
-    padding: 8rem 0;
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+    text-align: center;
 }
 
-.section-tag {
-    color: var(--primary-light);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    display: block;
-}
+.btn-primary { background: var(--primary); color: white; }
+.btn-outline { border: 2px solid white; color: white; }
 
-.section h2 {
-    font-size: clamp(2rem, 3vw, 3rem);
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 1.5rem;
-    color: var(--bg-dark);
-}
-
+/* --- Cards & Grid (Mobile Base is 1 column) --- */
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-    margin-top: 4rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .premium-card {
     background: white;
-    padding: 3rem;
-    border-radius: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem;
+    border-radius: 20px;
     border: 1px solid rgba(0,0,0,0.05);
 }
 
-.premium-card:hover {
-    transform: translateY(-12px);
-    box-shadow: var(--shadow-xl);
+/* --- Sticky Mobile CTA --- */
+.mobile-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 1rem;
+    z-index: 999;
 }
 
-.premium-card .icon {
+.mobile-cta .btn { flex: 1; padding: 0.75rem; font-size: 0.9rem; }
+
+/* --- Desktop Overrides (Tablet and up) --- */
+@media (min-width: 768px) {
+    body { padding-bottom: 0; }
+    h1 { font-size: 4rem; }
+    h2 { font-size: 2.75rem; }
+    .section { padding: 8rem 0; }
+    
+    .menu-toggle { display: none; }
+    
+    .nav-links {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        align-items: center;
+    }
+    
+    .hero { text-align: left; }
+    .hero-cta { flex-direction: row; }
+    
+    .feature-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: center; }
+    
+    .mobile-cta { display: none; }
+}
+
+/* --- Authority Footer --- */
+.footer-authority-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.nrca-logo {
     width: 60px;
     height: 60px;
-    background: rgba(16, 185, 129, 0.1);
-    border-radius: 16px;
+    background: #004797;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
-    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 8px;
 }
 
-/* --- Trusted Locations Grid --- */
-.location-pill-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 3rem;
+.authority-text {
+    text-align: left;
 }
 
-.location-pill {
-    background: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
+.authority-text h4 {
+    color: #004797;
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.authority-text p {
+    color: #475569;
+    margin: 5px 0 0 0;
+    font-size: 0.8rem;
     font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--bg-dark);
-    text-decoration: none;
-    border: 1px solid rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
 }
 
-.location-pill:hover {
-    background: var(--primary);
+.agency-credit {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.agency-credit a {
     color: white;
-    border-color: var(--primary);
-    transform: scale(1.05);
-}
-
-/* --- Glass Testimonial --- */
-.testimonial-card {
-    background: white;
-    padding: 3rem;
-    border-radius: 32px;
-    position: relative;
-}
-
-.rating {
-    color: #f59e0b;
-    margin-bottom: 1.5rem;
-    font-size: 1.25rem;
-}
-
-/* --- Modern Form --- */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 6rem;
-    align-items: center;
-}
-
-.modern-form {
-    background: white;
-    padding: 4rem;
-    border-radius: 32px;
-    box-shadow: var(--shadow-xl);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--bg-dark);
-}
-
-.form-group input, .form-group select {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(0,0,0,0.1);
-    background: #f1f5f9;
-    font-family: inherit;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
     transition: all 0.3s ease;
 }
 
-.form-group input:focus {
-    outline: none;
+.agency-credit a:hover {
+    color: var(--primary-light);
     border-color: var(--primary-light);
-    background: white;
-    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
 }
 
-/* --- Responsive Fixes --- */
-@media (max-width: 1024px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 4rem;
+/* --- Elegant Location Hub (Midnight Grid) --- */
+.location-hub {
+    background: #0f172a;
+    padding: 7rem 0;
+    color: white;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-top: 4rem;
+}
+
+.location-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.location-item:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 768px) {
+    .location-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
-@media (max-width: 768px) {
-    .hero {
-        background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.8) 50%, rgba(15, 23, 42, 0.5) 100%), url('victoria_roof_organic_hero_1778633825389.png');
-    }
-    .hero h1 {
-        font-size: 2.75rem;
-    }
-    .nav-links {
-        display: none; /* In real app, add a hamburger menu */
+@media (min-width: 1024px) {
+    .location-grid {
+        grid-template-columns: repeat(5, 1fr);
     }
 }

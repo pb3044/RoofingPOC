@@ -7,28 +7,42 @@
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav id="mainNav" class="scrolled">
+    <!-- Sticky Mobile CTA -->
+    <div class="mobile-cta">
+        <a href="tel:2500000000" class="btn btn-primary" style="background: #1e293b;">Call Now</a>
+        <a href="index.html#contact" class="btn btn-primary">Free Quote</a>
+    </div>
+
+    <nav id="mainNav">
         <div class="container nav-content">
             <a href="index.html" class="logo">Roof<span>Labs</span></a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="services.html">Process</a>
-                <a href="index.html#contact" class="btn-quote">Get Free Quote</a>
+            
+            <div class="menu-toggle" id="mobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="services.html">Our Process</a>
+                <a href="index.html#locations">Locations</a>
+                <a href="index.html#reviews">Results</a>
+                <a href="index.html#contact" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">Get Free Quote</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero" style="height: 70vh; background-image: linear-gradient(to right, rgba(15, 23, 42, 0.8) 40%, rgba(15, 23, 42, 0.3) 100%), url('victoria_roof_organic_hero_1778633825389.png');">
+    <header class="hero" style="height: 60vh; background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url('victoria_roof_organic_hero_1778633825389.png');">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content reveal" style="text-align: center; margin: 0 auto;">
                 <span class="hero-label">Serving Saanich, BC</span>
                 <h1>Local Organic Roof Care for Saanich</h1>
-                <p>Gentle, bio-based roof rejuvenation for Saanich homeowners. Preserve your shingles and protect your local environment with our non-toxic treatment.</p>
-                <a href="#contact" class="btn-quote" style="padding: 1rem 2.5rem;">Request Saanich Quote</a>
+                <p>Gentle, molecular conditioning for Saanich homeowners. Preserve your shingles and protect the local environment.</p>
+                <a href="#contact" class="btn btn-primary" style="display: inline-block; margin-top: 1rem;">Request Saanich Quote</a>
             </div>
         </div>
     </header>
@@ -36,22 +50,22 @@
     <section class="section">
         <div class="container">
             <div class="contact-grid">
-                <div>
+                <div class="reveal">
                     <span class="section-tag">Community Trusted</span>
                     <h2>The Saanich Choice for Healthy Roofs</h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">In Saanich, we value our natural surroundings. That's why Roof Labs uses 100% organic solutions that are safe for Saanich's gardens and pets.</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">In Saanich, we value our natural surroundings. That's why Roof Labs uses 100% organic solutions that are safe for your gardens and pets.</p>
                     <div class="premium-card" style="padding: 2rem;">
                         <h4 style="margin-bottom: 0.5rem;">Active in your area</h4>
                         <p style="font-size: 0.9rem; opacity: 0.7;">We have teams in Saanich East and Saanich West every Tuesday and Thursday.</p>
                     </div>
                 </div>
-                <div>
-                     <div style="background: var(--bg-dark); padding: 4rem; border-radius: 32px; color: white;">
+                <div class="reveal">
+                     <div style="background: var(--primary); padding: 4rem; border-radius: 32px; color: white;">
                         <h3 style="color: white; font-size: 2rem; margin-bottom: 1.5rem;">Saanich Perks</h3>
                         <ul style="list-style: none; padding: 0;">
                             <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✅</span> <span>Same-day inspections</span></li>
                             <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✅</span> <span>Local neighborhood discounts</span></li>
-                            <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✅</span> <span>Eco-friendly certification</span></li>
+                            <li style="margin-bottom: 1rem; display: flex; gap: 1rem;"><span>✅</span> <span>Manufacturer approved tech</span></li>
                         </ul>
                      </div>
                 </div>
@@ -59,12 +73,91 @@
         </div>
     </section>
 
-    <footer style="padding: 4rem 0; background: #0f172a; color: rgba(255,255,255,0.5);">
-        <div class="container" style="text-align: center;">
-            <a href="index.html" class="logo" style="color: white; margin-bottom: 2rem; display: block;">Roof<span>Labs</span></a>
-            <p>&copy; 2026 Roof Labs Canada. Saanich, BC.</p>
+    <section id="locations" class="location-hub" style="background: #0f172a;">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <span style="color: var(--primary-light); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Serving the Entire Island</span>
+                <h2 style="color: white; margin-top: 1rem;">Service Area Directory</h2>
+                <p style="color: rgba(255,255,255,0.6);">Professional organic roof care across 20+ Vancouver Island communities.</p>
+            </div>
+            
+            <div class="location-grid reveal">
+                <a href="index.html" class="location-item">Victoria BC</a>
+                <a href="saanich.html" class="location-item">Saanich BC</a>
+                <a href="oak-bay.html" class="location-item">Oak Bay BC</a>
+                <a href="esquimalt.html" class="location-item">Esquimalt BC</a>
+                <a href="view-royal.html" class="location-item">View Royal BC</a>
+                <a href="colwood.html" class="location-item">Colwood BC</a>
+                <a href="langford.html" class="location-item">Langford BC</a>
+                <a href="metchosin.html" class="location-item">Metchosin BC</a>
+                <a href="sidney.html" class="location-item">Sidney BC</a>
+                <a href="north-saanich.html" class="location-item">North Saanich BC</a>
+                <a href="central-saanich.html" class="location-item">Central Saanich BC</a>
+                <a href="brentwood-bay.html" class="location-item">Brentwood Bay BC</a>
+                <a href="sooke.html" class="location-item">Sooke BC</a>
+                <a href="highlands.html" class="location-item">Highlands BC</a>
+                <a href="duncan.html" class="location-item">Duncan BC</a>
+                <a href="ladysmith.html" class="location-item">Ladysmith BC</a>
+                <a href="chemainus.html" class="location-item">Chemainus BC</a>
+                <a href="mill-bay.html" class="location-item">Mill Bay BC</a>
+                <a href="cobble-hill.html" class="location-item">Cobble Hill BC</a>
+                <a href="nanaimo.html" class="location-item">Nanaimo BC</a>
+            </div>
+        </div>
+    </section>
+
+        <footer style="padding: 5rem 0; background: #0f172a; color: rgba(255,255,255,0.5); text-align: center;">
+        <div class="container">
+            <div class="footer-authority-card reveal">
+                <div class="nrca-logo">N</div>
+                <div class="authority-text">
+                    <h4>NRCA</h4>
+                    <p>National Roofing Contractors Association</p>
+                </div>
+            </div>
+            <p>&copy; 2026 Roof Labs Canada. All rights reserved.</p>
+            <div class="agency-credit">
+                Site designed by <a href="https://topinfotech.com/" target="_blank">Top Infotech</a>
+            </div>
         </div>
     </footer>
 
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.onscroll = reveal;
+        window.onload = reveal;
+
+        // Smooth Scroll Fix
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
+
