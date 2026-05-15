@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -110,6 +110,20 @@
                 if (elementTop < windowHeight - 50) { reveals[i].classList.add("active"); }
             }
         }
+
+        window.addEventListener("scroll", () => {
+            const nav = document.getElementById('mainNav');
+            const bar = document.getElementById('announcementBar');
+            if (window.scrollY > 60) {
+                nav.classList.add('scrolled');
+                if (bar) bar.classList.add('hidden');
+            } else {
+                nav.classList.remove('scrolled');
+                if (bar) bar.classList.remove('hidden');
+            }
+            reveal();
+        });
+
         window.onload = reveal;
     </script>
 </body>
