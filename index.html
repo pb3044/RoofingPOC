@@ -1,231 +1,414 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roof Labs | Organic Roof Moss Removal Victoria BC</title>
-    <meta name="description" content="Save up to $26,000 on roof replacement. Victoria's highest-rated organic roof moss removal and shingle rejuvenation. Eco-safe, non-toxic, and manufacturer approved.">
-    
-    <!-- Canonical & Social Meta -->
-    <link rel="canonical" href="https://rooflabscanada.com/index.html" />
-    <meta property="og:title" content="Roof Labs | Organic Roof Rejuvenation Victoria" />
-    <meta property="og:description" content="Save $26,000. 100% Organic Molecular Conditioning adds 15 years to your roof." />
-    <meta property="og:image" content="victoria_roof_organic_hero_1778633825389.png" />
-    <meta property="og:url" content="https://rooflabscanada.com/" />
-    <meta name="twitter:card" content="summary_large_image">
-
+    <title>Roof Labs | Platinum Shingle Preservation</title>
+    <meta name="description" content="Exclusive roof rejuvenation for Victoria's finest homes. Restore your shingles with our gold-standard molecular treatment.">
     <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
 
-    <!-- Sticky Mobile CTA -->
-    <div class="mobile-cta">
-        <a href="tel:2500000000" class="btn btn-primary" style="background: #1e293b;">Call Now</a>
-        <a href="#contact" class="btn btn-primary">Free Quote</a>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar" id="announcementBar">
+        <div class="container">
+            <div class="ab-left">Victoria's <span>Platinum</span> Shingle Rejuvenation Specialists · <span>6-Year Guarantee</span></div>
+            <a href="tel:2508898490" class="ab-right">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                Call Now (250) 889-8490
+            </a>
+        </div>
     </div>
 
     <nav id="mainNav">
         <div class="container nav-content">
             <a href="index.html" class="logo">Roof<span>Labs</span></a>
-            
             <div class="menu-toggle" id="mobileMenu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
-
             <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
                 <a href="services.html">Our Process</a>
                 <a href="#locations">Locations</a>
-                <a href="#reviews">Results</a>
-                <a href="#contact" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">Get Free Quote</a>
+                <a href="#results">Results</a>
+            </div>
+            <div class="nav-cta">
+                <a href="tel:2508898490" class="nav-phone">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                    (250) 889-8490
+                </a>
+                <a href="#contact" class="nav-quote-btn">Get Free Quote</a>
             </div>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <div class="hero-content reveal">
-                <span class="hero-label">Manufacturer Approved • Victoria, BC</span>
-                <h1>Save Up To $26,000 on Your Roof</h1>
-                <p>Don't replace your roof—rejuvenate it. Our 100% organic <strong>Molecular Conditioning</strong> adds 15 years of life to your shingles at a fraction of the cost. No pressure washing. No damage.</p>
-                <div class="hero-btns" style="display: flex; gap: 1rem; margin-top: 2rem; flex-direction: column;">
-                    <a href="#contact" class="btn btn-primary">Book Free Shingle Lab Test</a>
-                    <a href="services.html" class="btn btn-outline" style="border: 2px solid rgba(255,255,255,0.3);">See the Science &rarr;</a>
+            <div class="hero-grid">
+                <div class="reveal">
+                    <span class="hero-tag" style="margin-bottom: 3rem;">Manufacturer Approved • Victoria, BC</span>
+                    <h1 class="elegant-h1" style="text-align: left; letter-spacing: 12px; margin-bottom: 3rem;">
+                        Modern Roof<br>
+                        <span style="letter-spacing: 4px;">Rejuvenation</span>
+                    </h1>
+                    <p class="text-silver" style="text-align: left; margin: 0 0 4rem 0; font-size: 1.2rem; max-width: 550px;">Don't replace. Rejuvenate. Our 100% organic molecular conditioning restores flexibility to your shingles, adding 15 years of life for a fraction of the cost.</p>
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="#contact" class="btn btn-primary">Start Lab Test</a>
+                        <a href="#results" class="btn btn-outline">See Results</a>
+                    </div>
+                </div>
+                <div class="reveal" style="position: relative;">
+                    <div class="hero-image">
+                        <img src="premium_roof_hero_victoria_1778866736316.png" alt="Premium Roof Care">
+                    </div>
+                    <!-- Floating Detail Card -->
+                    <div style="position: absolute; bottom: 40px; left: -40px; background: rgba(10, 17, 40, 0.9); backdrop-filter: blur(20px); border: 1px solid var(--gold); padding: 1.5rem; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.5);">
+                        <div style="color: var(--gold); font-size: 0.6rem; font-weight: 900; letter-spacing: 2px;">PROCESS_STAGES</div>
+                        <div style="font-size: 1.2rem; font-weight: 800; color: white;">+15 YEAR LIFE</div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="services" class="section">
+    <section class="section" style="background: rgba(255,255,255,0.02);">
         <div class="container">
-            <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <span style="color: var(--primary-light); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Sustainable Tech</span>
-                <h2 style="margin: 1rem 0;">Why Organic?</h2>
-            </div>
-            
-            <div class="feature-grid">
-                <div class="premium-card reveal">
-                    <img src="organic_treatment_action_1778634697558.png" alt="Organic Application" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; margin-bottom: 1.5rem;">
-                    <h3>100% Bio-Based</h3>
-                    <p>Proprietary soy-based solution safe for gardens, pets, and children. Zero toxic runoff.</p>
+            <div class="bento-box">
+                <div class="bento-card reveal">
+                    <h3>01. Science</h3>
+                    <p style="color: rgba(255,255,255,0.6);">Re-infuses essential oils into the asphalt matrix to restore shingle flexibility.</p>
                 </div>
-                <div class="premium-card reveal">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">💧</div>
-                    <h3>Soft-Wash Tech</h3>
-                    <p>No pressure washing. We kill moss at the root without damaging shingle integrity.</p>
+                <div class="bento-card reveal">
+                    <h3>02. Safety</h3>
+                    <p style="color: rgba(255,255,255,0.6);">No pressure washing. 100% bio-based formula safe for gardens and coastline.</p>
                 </div>
-                <div class="premium-card reveal">
-                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
-                    <h3>15 Year Life</h3>
-                    <p>We re-infuse essential oils into shingles, restoring durability for a decade of extra life.</p>
+                <div class="bento-card reveal">
+                    <h3>03. Savings</h3>
+                    <p style="color: rgba(255,255,255,0.6);">Save up to $26,000 compared to a full roof replacement.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="stats" class="section" style="background: white; border-bottom: 1px solid rgba(0,0,0,0.05);">
+    <section id="results" class="section">
         <div class="container">
-            <div class="feature-grid reveal" style="text-align: center;">
-                <div>
-                    <h3 style="font-size: 2.5rem; color: var(--primary);">9+ Years</h3>
-                    <p>Serving Vancouver Island</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 2.5rem; color: var(--primary);">1,200%</h3>
-                    <p>Estimated First-Year ROI</p>
-                </div>
-                <div>
-                    <h3 style="font-size: 2.5rem; color: var(--primary);">6 Years</h3>
-                    <p>Protection Guarantee</p>
-                </div>
-            </div>
-        </div>
-    </section>
-        <div class="container">
-            <div class="contact-grid">
-                <div class="reveal">
-                    <h2>See the Difference</h2>
-                    <p style="margin-bottom: 2rem;">Our treatment restores the original health and flexibility of your shingles.</p>
-                    <img src="roof_before_after_clean_1778634712083.png" alt="Before and After" style="width: 100%; border-radius: 24px; box-shadow: var(--shadow-xl);">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="locations" class="location-hub" style="background: #0f172a;">
-        <div class="container">
-            <div class="reveal" style="text-align: center;">
-                <span style="color: var(--primary-light); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Serving the Entire Island</span>
-                <h2 style="color: white; margin-top: 1rem;">Service Area Directory</h2>
-                <p style="color: rgba(255,255,255,0.6);">Professional organic roof care across 20+ Vancouver Island communities.</p>
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span style="color: var(--gold); font-weight: 800; letter-spacing: 4px; font-size: 0.75rem;">PRECISION SCAN</span>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 3rem; margin-top: 1rem;">Visual Discovery</h2>
             </div>
             
-            <div class="location-grid reveal">
-                <a href="index.html" class="location-item">Victoria BC</a>
-                <a href="saanich.html" class="location-item">Saanich BC</a>
-                <a href="oak-bay.html" class="location-item">Oak Bay BC</a>
-                <a href="esquimalt.html" class="location-item">Esquimalt BC</a>
-                <a href="view-royal.html" class="location-item">View Royal BC</a>
-                <a href="colwood.html" class="location-item">Colwood BC</a>
-                <a href="langford.html" class="location-item">Langford BC</a>
-                <a href="metchosin.html" class="location-item">Metchosin BC</a>
-                <a href="sidney.html" class="location-item">Sidney BC</a>
-                <a href="north-saanich.html" class="location-item">North Saanich BC</a>
-                <a href="central-saanich.html" class="location-item">Central Saanich BC</a>
-                <a href="brentwood-bay.html" class="location-item">Brentwood Bay BC</a>
-                <a href="sooke.html" class="location-item">Sooke BC</a>
-                <a href="highlands.html" class="location-item">Highlands BC</a>
-                <a href="duncan.html" class="location-item">Duncan BC</a>
-                <a href="ladysmith.html" class="location-item">Ladysmith BC</a>
-                <a href="chemainus.html" class="location-item">Chemainus BC</a>
-                <a href="mill-bay.html" class="location-item">Mill Bay BC</a>
-                <a href="cobble-hill.html" class="location-item">Cobble Hill BC</a>
-                <a href="nanaimo.html" class="location-item">Nanaimo BC</a>
+            <div class="reveal" style="max-width: 1000px; margin: 0 auto;">
+                <div class="comparison-wrapper" id="scanner">
+                    <div class="img-label label-before">BEFORE TREATMENT</div>
+                    <div class="img-label label-after">AFTER REJUVENATION</div>
+                    <div class="img img-after" style="background-image: url('roof_rejuvenation_comparison_1778866802358.png');"></div>
+                    <div class="img img-before" style="background-image: url('roof_gallery_1_oak_bay_1778867427622.png');"></div>
+                    <div class="scanner-handle"></div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; color: rgba(255,255,255,0.4); font-size: 0.9rem; letter-spacing: 1px;">Experience the transformation. Drag the slider to reveal the results.</p>
             </div>
         </div>
     </section>
 
     <section id="contact" class="section">
-        <div class="container">
-            <div class="reveal" style="background: #0f172a; padding: 2.5rem; border-radius: 24px; color: white;">
-                <h2 style="color: white; margin-bottom: 1.5rem;">Free Inspection</h2>
-                <form>
-                    <div style="margin-bottom: 1.25rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">Name</label>
-                        <input type="text" placeholder="Your Name" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: none;">
-                    </div>
-                    <div style="margin-bottom: 1.25rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem;">Phone</label>
-                        <input type="tel" placeholder="Your Phone" style="width: 100%; padding: 0.75rem; border-radius: 8px; border: none;">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none; font-size: 1rem;">Get Free Quote</button>
+        <div class="container" style="max-width: 800px;">
+            <div class="reveal" style="background: var(--glass); border: 1px solid var(--border); padding: 4rem; border-radius: 40px; text-align: center;">
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 3rem; margin-bottom: 1rem;">Request Lab Report</h2>
+                <p style="color: rgba(255,255,255,0.5); margin-bottom: 3rem;">Receive a detailed health analysis of your roof's asphalt matrix.</p>
+                <form id="platinum-form">
+                    <input type="text" placeholder="Full Name" required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 1.25rem; border-radius: 15px; color: white; margin-bottom: 1rem;">
+                    <input type="tel" placeholder="Phone Number" required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 1.25rem; border-radius: 15px; color: white; margin-bottom: 1rem;">
+                    <input type="text" placeholder="Property Address" required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 1.25rem; border-radius: 15px; color: white; margin-bottom: 2rem;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Generate Report</button>
                 </form>
             </div>
         </div>
     </section>
-
-    <footer style="padding: 5rem 0; background: #0f172a; color: rgba(255,255,255,0.5); text-align: center;">
+    <section id="locations" style="padding: 8rem 0; background: #020617; border-top: 1px solid var(--border);">
         <div class="container">
-            <div class="footer-authority-card reveal">
-                <div class="nrca-logo">N</div>
-                <div class="authority-text">
-                    <h4>NRCA</h4>
-                    <p>National Roofing Contractors Association</p>
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span style="color: var(--gold); font-weight: 800; letter-spacing: 6px; font-size: 0.75rem; text-transform: uppercase;">Service Coverage</span>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; margin-top: 1rem; color: white;">Where We Serve</h2>
+                <p style="color: rgba(255,255,255,0.4); margin-top: 0.75rem; font-size: 0.95rem;">Hover any pin or location to highlight it — click to visit its dedicated service page.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 300px; gap: 2rem; height: 620px;">
+                <!-- Left: Live Map -->
+                <div id="service-map" style="border-radius: 24px; border: 1px solid rgba(212,175,55,0.25); overflow: hidden;"></div>
+
+                <!-- Right: Grouped Location List -->
+                <div id="location-sidebar" style="
+                    overflow-y: auto;
+                    border-radius: 24px;
+                    border: 1px solid rgba(255,255,255,0.08);
+                    background: rgba(255,255,255,0.02);
+                    padding: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    scrollbar-width: thin;
+                    scrollbar-color: rgba(212,175,55,0.3) transparent;
+                ">
+                    <!-- Regions are injected by JS -->
                 </div>
             </div>
-            <p>&copy; 2026 Roof Labs Canada. All rights reserved.</p>
-            <div class="agency-credit">
-                Site designed by <a href="https://topinfotech.com/" target="_blank">Top Infotech</a>
-            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer style="padding: 6rem 0; border-top: 1px solid var(--border);">
+        <div class="container" style="text-align: center;">
+            <div class="logo" style="margin-bottom: 2rem;">Roof<span>Labs</span></div>
+            <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem;">&copy; 2026 Roof Labs Canada. The Gold Standard in Shingle Preservation.</p>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('mobileMenu');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        // ─── Service Area Map ────────────────────────────────────────────────────
+        const map = L.map('service-map', {
+            center: [48.72, -123.62],
+            zoom: 10,
+            zoomControl: true,
+            scrollWheelZoom: false
         });
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            subdomains: 'abcd', maxZoom: 19
+        }).addTo(map);
+
+        const regions = [
+            { name: 'Greater Victoria', color: '#D4AF37', locations: [
+                { name: 'Victoria',    lat: 48.4284, lng: -123.3656, url: 'index.html' },
+                { name: 'Oak Bay',     lat: 48.4260, lng: -123.3197, url: 'oak-bay.html' },
+                { name: 'The Uplands', lat: 48.4390, lng: -123.3050, url: 'uplands.html' },
+                { name: 'Esquimalt',   lat: 48.4317, lng: -123.4180, url: 'esquimalt.html' },
+                { name: 'View Royal',  lat: 48.4528, lng: -123.4344, url: 'view-royal.html' },
+            ]},
+            { name: 'Saanich & Peninsula', color: '#60a5fa', locations: [
+                { name: 'Saanich',         lat: 48.4845, lng: -123.3647, url: 'saanich.html' },
+                { name: 'Broadmead',       lat: 48.5073, lng: -123.3822, url: 'broadmead.html' },
+                { name: 'Cordova Bay',     lat: 48.5189, lng: -123.3586, url: 'cordova-bay.html' },
+                { name: 'Central Saanich', lat: 48.5478, lng: -123.4144, url: 'central-saanich.html' },
+                { name: 'Brentwood Bay',   lat: 48.5681, lng: -123.4636, url: 'brentwood-bay.html' },
+                { name: 'North Saanich',   lat: 48.6139, lng: -123.4258, url: 'north-saanich.html' },
+                { name: 'Sidney',          lat: 48.6509, lng: -123.3988, url: 'sidney.html' },
+            ]},
+            { name: 'West Shore', color: '#34d399', locations: [
+                { name: 'Colwood',       lat: 48.4303, lng: -123.4956, url: 'colwood.html' },
+                { name: 'Langford',      lat: 48.4506, lng: -123.5053, url: 'langford.html' },
+                { name: 'Bear Mountain', lat: 48.4778, lng: -123.5147, url: 'bear-mountain.html' },
+                { name: 'Highlands',     lat: 48.5028, lng: -123.5578, url: 'highlands.html' },
+                { name: 'Metchosin',     lat: 48.3836, lng: -123.5414, url: 'metchosin.html' },
+                { name: 'Sooke',         lat: 48.3764, lng: -123.7275, url: 'sooke.html' },
+            ]},
+            { name: 'Cowichan Valley', color: '#f472b6', locations: [
+                { name: 'Mill Bay',    lat: 48.6456, lng: -123.5508, url: 'mill-bay.html' },
+                { name: 'Cobble Hill', lat: 48.6861, lng: -123.6058, url: 'cobble-hill.html' },
+                { name: 'Duncan',      lat: 48.7787, lng: -123.7079, url: 'duncan.html' },
+            ]},
+            { name: 'Central Island', color: '#a78bfa', locations: [
+                { name: 'Chemainus', lat: 48.9225, lng: -123.7164, url: 'chemainus.html' },
+                { name: 'Ladysmith', lat: 48.9981, lng: -123.8192, url: 'ladysmith.html' },
+                { name: 'Nanaimo',   lat: 49.1659, lng: -123.9401, url: 'nanaimo.html' },
+            ]}
+        ];
+
+        // Clean dot marker with region color
+        function dotIcon(color, large = false) {
+            const size = large ? 16 : 10;
+            return L.divIcon({
+                className: '',
+                html: `<div style="
+                    width:${size}px; height:${size}px;
+                    background:${color};
+                    border-radius:50%;
+                    border: 2px solid rgba(255,255,255,0.8);
+                    box-shadow: 0 0 ${large ? 14 : 8}px ${color};
+                    transition: all 0.2s;
+                "></div>`,
+                iconSize: [size, size],
+                iconAnchor: [size/2, size/2]
+            });
+        }
+
+        const registry = {};
+        const sidebar = document.getElementById('location-sidebar');
+
+        regions.forEach(region => {
+            // Sidebar region header
+            const header = document.createElement('div');
+            header.style.cssText = `
+                display: flex; align-items: center; gap: 8px;
+                padding: 1.2rem 0.75rem 0.4rem;
+                font-family: 'Outfit', sans-serif;
+                font-size: 0.6rem; font-weight: 900;
+                letter-spacing: 3px; text-transform: uppercase;
+                color: ${region.color};
+            `;
+            header.innerHTML = `<span style="width:8px;height:8px;border-radius:50%;background:${region.color};display:inline-block;"></span>${region.name}`;
+            sidebar.appendChild(header);
+
+            region.locations.forEach(loc => {
+                const id = loc.url;
+
+                // Map marker
+                const marker = L.marker([loc.lat, loc.lng], { icon: dotIcon(region.color) }).addTo(map);
+
+                // Tooltip (clean, always on hover, not click)
+                marker.bindTooltip(loc.name, {
+                    permanent: false,
+                    direction: 'top',
+                    offset: [0, -8],
+                    className: 'map-tooltip'
+                });
+
+                // Sidebar row
+                const row = document.createElement('a');
+                row.href = loc.url;
+                row.target = '_blank';
+                row.rel = 'noopener';
+                row.style.cssText = `
+                    display: flex; align-items: center; gap: 10px;
+                    padding: 0.6rem 0.75rem;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    color: rgba(255,255,255,0.65);
+                    font-size: 0.88rem;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    transition: all 0.18s ease;
+                    border: 1px solid transparent;
+                `;
+                row.innerHTML = `
+                    <span style="width:7px;height:7px;border-radius:50%;background:${region.color};flex-shrink:0;"></span>
+                    <span>${loc.name}</span>
+                `;
+
+                registry[id] = { marker, row, loc, color: region.color };
+
+                // Hover: list → map
+                row.addEventListener('mouseenter', () => highlight(id, false));
+                row.addEventListener('mouseleave', () => reset(id));
+
+                // Click: list → highlight + pan + tooltip + open new tab
+                row.addEventListener('click', () => highlight(id, true));
+
+                // Hover: map → list
+                marker.on('mouseover', () => highlight(id, false));
+                marker.on('mouseout',  () => reset(id));
+
+                // Click map marker → open in new tab
+                marker.on('click', () => window.open(loc.url, '_blank'));
+
+                sidebar.appendChild(row);
             });
         });
 
+        function highlight(id, panMap) {
+            const e = registry[id];
+            if (!e) return;
+            e.marker.setIcon(dotIcon(e.color, true));
+            e.marker.openTooltip();                          // Show tooltip
+            e.row.style.background = `rgba(255,255,255,0.05)`;
+            e.row.style.borderColor = `rgba(255,255,255,0.12)`;
+            e.row.style.color = '#fff';
+            if (panMap) map.panTo([e.loc.lat, e.loc.lng], { animate: true, duration: 0.4 });
+        }
+
+        function reset(id) {
+            const e = registry[id];
+            if (!e) return;
+            e.marker.setIcon(dotIcon(e.color, false));
+            e.marker.closeTooltip();                         // Hide tooltip
+            e.row.style.background = 'transparent';
+            e.row.style.borderColor = 'transparent';
+            e.row.style.color = 'rgba(255,255,255,0.65)';
+        }
+
+        // Inject styles
+        const s = document.createElement('style');
+        s.textContent = `
+            .map-tooltip {
+                background: #0a1128;
+                border: 1px solid rgba(212,175,55,0.4);
+                color: #fff;
+                font-family: 'Outfit', sans-serif;
+                font-size: 12px;
+                font-weight: 700;
+                padding: 4px 10px;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+                white-space: nowrap;
+            }
+            .map-tooltip::before { display: none; }
+            .leaflet-tooltip-top.map-tooltip::before { display: none; }
+            .leaflet-control-zoom a {
+                background: #0f172a !important;
+                color: #D4AF37 !important;
+                border-color: rgba(255,255,255,0.08) !important;
+            }
+            .leaflet-control-attribution { display: none; }
+            #location-sidebar::-webkit-scrollbar { width: 3px; }
+            #location-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+        `;
+        document.head.appendChild(s);
+        // ────────────────────────────────────────────────────────────────────────
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        if (menuToggle) menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
         // Scroll Reveal
+
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
+                if (elementTop < windowHeight - 50) { reveals[i].classList.add("active"); }
             }
         }
-        window.onscroll = reveal;
+        window.addEventListener("scroll", () => {
+            const nav = document.getElementById('mainNav');
+            const bar = document.getElementById('announcementBar');
+            if (window.scrollY > 60) {
+                nav.classList.add('scrolled');
+                if (bar) bar.classList.add('hidden');
+            } else {
+                nav.classList.remove('scrolled');
+                if (bar) bar.classList.remove('hidden');
+            }
+            reveal();
+        });
         window.onload = reveal;
 
-        // Smooth Scroll Fix for Local Files
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
+        // Scanner Logic
+        const scanner = document.getElementById('scanner');
+        const beforeImg = scanner.querySelector('.img-before');
+        const handle = scanner.querySelector('.scanner-handle');
+        let dragging = false;
+
+        const processMove = (x) => {
+            let rect = scanner.getBoundingClientRect();
+            let pos = ((x - rect.left) / rect.width) * 100;
+            if (pos < 0) pos = 0; if (pos > 100) pos = 100;
+            beforeImg.style.width = pos + '%';
+            handle.style.left = pos + '%';
+        };
+
+        scanner.addEventListener('mousedown', () => dragging = true);
+        window.addEventListener('mouseup', () => dragging = false);
+        window.addEventListener('mousemove', (e) => dragging && processMove(e.clientX));
+        
+        scanner.addEventListener('touchstart', () => dragging = true);
+        window.addEventListener('touchend', () => dragging = false);
+        window.addEventListener('touchmove', (e) => dragging && processMove(e.touches[0].clientX));
     </script>
 </body>
 </html>
-
