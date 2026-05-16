@@ -557,7 +557,7 @@
 
         const processMove = (x) => {
             if (!scanner) return;
-            let rect = scanner.getBoundingClientRect();
+            const rect = scanner.getBoundingClientRect();
             let pos = ((x - rect.left) / rect.width) * 100;
             if (pos < 0) pos = 0; if (pos > 100) pos = 100;
             beforeImg.style.width = pos + '%';
@@ -566,7 +566,6 @@
 
         const startDragging = (e) => {
             dragging = true;
-            // Prevent text selection or image drag
             if (e.type === 'mousedown') e.preventDefault();
         };
 
@@ -574,9 +573,10 @@
 
         const onMove = (e) => {
             if (!dragging) return;
-            let x = (e.type === 'touchmove') ? e.touches[0].clientX : e.clientX;
+            const x = (e.type === 'touchmove') ? e.touches[0].clientX : e.clientX;
             processMove(x);
-            if (e.type === 'touchmove') e.preventDefault(); // Lock scroll
+            // Only prevent default on touchmove to avoid scroll interference
+            if (e.type === 'touchmove') e.preventDefault();
         };
 
         scanner.addEventListener('mousedown', startDragging);
@@ -587,18 +587,20 @@
         window.addEventListener('touchmove', onMove, { passive: false });
 
         // Auto-Hint
-        window.addEventListener('load', () => {
+        const runHint = () => {
+            if (!scanner) return;
+            const rect = scanner.getBoundingClientRect();
+            beforeImg.style.transition = 'width 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
+            handle.style.transition = 'left 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
+            processMove(rect.left + (rect.width * 0.65));
+            
             setTimeout(() => {
-                beforeImg.style.transition = 'width 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
-                handle.style.transition = 'left 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
-                processMove(scanner.getBoundingClientRect().left + (scanner.offsetWidth * 0.65));
-                
-                setTimeout(() => {
-                    beforeImg.style.transition = 'none';
-                    handle.style.transition = 'none';
-                }, 1500);
-            }, 1200);
-        });
+                beforeImg.style.transition = 'none';
+                handle.style.transition = 'none';
+            }, 1500);
+        };
+
+        window.addEventListener('load', () => setTimeout(runHint, 1200));
     </script>
 </body>
 </html>
