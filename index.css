@@ -503,6 +503,19 @@ h1 {
     color: white;
 }
 
+.hero-sub {
+    min-height: 60vh !important;
+    padding-top: 160px;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-sub h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
 .elegant-h1 span {
     font-weight: 700;
     color: var(--gold);
