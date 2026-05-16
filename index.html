@@ -556,6 +556,7 @@
         let dragging = false;
 
         const processMove = (x) => {
+            if (!scanner) return;
             let rect = scanner.getBoundingClientRect();
             let pos = ((x - rect.left) / rect.width) * 100;
             if (pos < 0) pos = 0; if (pos > 100) pos = 100;
@@ -563,31 +564,40 @@
             handle.style.left = pos + '%';
         };
 
-        scanner.addEventListener('mousedown', () => dragging = true);
-        window.addEventListener('mouseup', () => dragging = false);
-        window.addEventListener('mousemove', (e) => dragging && processMove(e.clientX));
-        
-        scanner.addEventListener('touchstart', () => dragging = true, { passive: false });
-        window.addEventListener('touchend', () => dragging = false);
-        window.addEventListener('touchmove', (e) => {
-            if (dragging) {
-                e.preventDefault(); // Prevent scrolling while dragging
-                processMove(e.touches[0].clientX);
-            }
-        }, { passive: false });
+        const startDragging = (e) => {
+            dragging = true;
+            // Prevent text selection or image drag
+            if (e.type === 'mousedown') e.preventDefault();
+        };
 
-        // Add a subtle "hint" animation on load
+        const stopDragging = () => dragging = false;
+
+        const onMove = (e) => {
+            if (!dragging) return;
+            let x = (e.type === 'touchmove') ? e.touches[0].clientX : e.clientX;
+            processMove(x);
+            if (e.type === 'touchmove') e.preventDefault(); // Lock scroll
+        };
+
+        scanner.addEventListener('mousedown', startDragging);
+        scanner.addEventListener('touchstart', startDragging, { passive: false });
+        window.addEventListener('mouseup', stopDragging);
+        window.addEventListener('touchend', stopDragging);
+        window.addEventListener('mousemove', onMove);
+        window.addEventListener('touchmove', onMove, { passive: false });
+
+        // Auto-Hint
         window.addEventListener('load', () => {
             setTimeout(() => {
-                beforeImg.style.transition = 'width 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
-                handle.style.transition = 'left 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
-                processMove(scanner.getBoundingClientRect().left + (scanner.offsetWidth * 0.7));
+                beforeImg.style.transition = 'width 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
+                handle.style.transition = 'left 1.5s cubic-bezier(0.23, 1, 0.32, 1)';
+                processMove(scanner.getBoundingClientRect().left + (scanner.offsetWidth * 0.65));
                 
                 setTimeout(() => {
                     beforeImg.style.transition = 'none';
                     handle.style.transition = 'none';
-                }, 1200);
-            }, 1000);
+                }, 1500);
+            }, 1200);
         });
     </script>
 </body>
