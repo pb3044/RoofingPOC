@@ -567,9 +567,28 @@
         window.addEventListener('mouseup', () => dragging = false);
         window.addEventListener('mousemove', (e) => dragging && processMove(e.clientX));
         
-        scanner.addEventListener('touchstart', () => dragging = true);
+        scanner.addEventListener('touchstart', () => dragging = true, { passive: false });
         window.addEventListener('touchend', () => dragging = false);
-        window.addEventListener('touchmove', (e) => dragging && processMove(e.touches[0].clientX));
+        window.addEventListener('touchmove', (e) => {
+            if (dragging) {
+                e.preventDefault(); // Prevent scrolling while dragging
+                processMove(e.touches[0].clientX);
+            }
+        }, { passive: false });
+
+        // Add a subtle "hint" animation on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                beforeImg.style.transition = 'width 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
+                handle.style.transition = 'left 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
+                processMove(scanner.getBoundingClientRect().left + (scanner.offsetWidth * 0.7));
+                
+                setTimeout(() => {
+                    beforeImg.style.transition = 'none';
+                    handle.style.transition = 'none';
+                }, 1200);
+            }, 1000);
+        });
     </script>
 </body>
 </html>
